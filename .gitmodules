@@ -1,0 +1,3 @@
+[submodule "Deadman's Switch/lib/forge-std"]
+	path = Deadman's Switch/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
