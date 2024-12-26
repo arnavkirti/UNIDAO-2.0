@@ -19,7 +19,7 @@ contract DeadmanSwitch {
         _;
     }
 
-    function stillAlive() external onlyOwner returns () {
+    function stillAlive() external onlyOwner {
         lastBlockAlive = block.number;
     }
 
@@ -36,10 +36,10 @@ contract DeadmanSwitch {
 
     function withdraw(uint256 amount) external onlyOwner {
         if(amount>=address(this).balance){
-            revert("Insufficient balance")
+            revert("Insufficient balance");
         }
         payable(owner).transfer(amount);
     }
 
-    recieve() external payable {}  
+    receive() external payable {}  
 }
