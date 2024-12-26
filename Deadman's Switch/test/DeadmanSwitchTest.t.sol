@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.2;
 
-import {Test} from "forge-std/Test.sol";
+import {Test, console} from "forge-std/Test.sol";
 import {DeadmanSwitch} from "../src/DeadmanSwitch.sol";
 
 contract DeadmanSwitchTest is Test {
@@ -35,5 +35,21 @@ contract DeadmanSwitchTest is Test {
         assertEq(recipient.balance, initialBalance + 1 ether);
     }
 
+    function testWithdrawByOwner() public {
+        vm.startPrank(owner);
 
+        uint256 initialContractBalance = address(deadmanswitch).balance;
+        assertEq(initialContractBalance, 1 ether);
+
+        uint256 initialOwnerBalance = owner.balance;
+        deadmanswitch.withdraw(0.5 ether);
+
+        uint256 finalContractBalance = address(deadmanswitch).balance;
+        uint256 finalOwnerBalance = owner.balance;
+
+        assertEq(finalContractBalance, initialContractBalance - 0.5 ether);
+        assertEq(finalOwnerBalance, initialOwnerBalance + 0.5 ether);
+
+        vm.stopPrank();
+    }
 }
