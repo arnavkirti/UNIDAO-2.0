@@ -52,4 +52,14 @@ contract DeadmanSwitchTest is Test {
 
         vm.stopPrank();
     }
+
+    function testCannotWithdrawByNonOwner() public {
+        vm.expectRevert("Not the owner");
+        deadmanswitch.withdraw(0.5 ether);
+    }
+
+    function testCannotTriggerBeforeTimeout() public {
+        vm.expectRevert("Owner is still active");
+        deadmanswitch.check_Inactive();
+    }
 }
