@@ -25,5 +25,15 @@ contract DeadmanSwitchTest is Test {
         vm.stopPrank();
     }
 
+    function testCheckInactiveTransferBalance() public {
+        vm.roll(block.number + 11);
+        uint256 initialBalance = recipient.balance;
+
+        vm.prank(address(0x3));
+        deadmanswitch.check_Inactive();
+
+        assertEq(recipient.balance, initialBalance + 1 ether);
+    }
+
 
 }
