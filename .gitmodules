@@ -1,3 +1,9 @@
 [submodule "Deadman's Switch/lib/forge-std"]
 	path = Deadman's Switch/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "NFT-collection/lib/forge-std"]
+	path = NFT-collection/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "NFT-collection/lib/openzeppelin-contracts"]
+	path = NFT-collection/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
