@@ -7,3 +7,6 @@
 [submodule "NFT-collection/lib/openzeppelin-contracts"]
 	path = NFT-collection/lib/openzeppelin-contracts
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "Task-6/erc-20_token/lib/forge-std"]
+	path = Task-6/erc-20_token/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
